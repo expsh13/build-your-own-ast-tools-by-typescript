@@ -1,0 +1,8 @@
+{
+  "$schema": "https://nodejs.org/dist/v23.10.0/docs/node-config-schema.json",
+  "nodeOptions": {
+    "disable-warning": ["ExperimentalWarning"],
+    "experimental-transform-types": true,
+    "experimental-detect-module": true
+  }
+}

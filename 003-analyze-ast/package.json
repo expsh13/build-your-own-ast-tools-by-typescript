@@ -9,6 +9,9 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
+  "bin": {
+    "analyze-ast-cli": "./dist/analyzeAstCli.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

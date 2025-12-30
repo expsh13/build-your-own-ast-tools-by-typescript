@@ -1,5 +1,5 @@
 {
-  "name": "002-create-cli",
+  "name": "expsh13/002-create-cli",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -11,14 +11,19 @@
     "typecheck": "tsc --noEmit"
   },
   "bin": {
-    "basic-cli": "dist/basicCli.js"
+    "basic-cli": "./dist/basicCli.js",
+    "interactive-cli": "./dist/interactiveCli.js"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
     "@types/node": "^25.0.3",
+    "@typescript/native-preview": "7.0.0-dev.20251228.1",
     "typescript": "^5.9.3"
   }
 }

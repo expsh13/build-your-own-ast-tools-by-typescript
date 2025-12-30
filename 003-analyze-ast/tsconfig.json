@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // 出力するJavaScriptのバージョンを最新(ESNext)に設定
+    "module": "ESNext", // モジュール形式をES Modulesに設定。import/exportを保持して出力
+    "moduleResolution": "bundler", // モジュール解決方法をバンドラ(Vite, esbuildなど)向けに最適化。拡張子付きimportも許可
+    "outDir": "./dist", // トランスパイルされたJavaScriptファイルの出力先フォルダをdistに
+    "rootDir": "./", // ソースファイルのルートディレクトリを指定
+    "forceConsistentCasingInFileNames": true, // import時のファイル名の大文字・小文字の不一致をエラーにする(OS差によるバグ防止)
+    "strict": true, // 厳格な型チェックオプションを有効にする
+    "allowImportingTsExtensions": true, // 拡張子付きのTypeScriptファイルのimportを許可
+    "rewriteRelativeImportExtensions": true // 相対パスのimportで拡張子を自動的に追加
+  },
+  "include": ["**/*.ts"], // サブフォルダを含むすべての.tsファイルを対象にする
+  "exclude": ["node_modules", "dist"] // node_modulesと出力先のdistフォルダは対象外にする
+}

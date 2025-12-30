@@ -1,0 +1,51 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": ".",
+    "outDir": "./dist",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "ESNext", // モジュール形式をES Modulesに設定。import/exportを保持して出力
+    "target": "esnext", // 出力するJavaScriptのバージョンを最新(ESNext)に設定
+    "moduleResolution": "bundler", // モジュール解決方法をバンドラ(Vite, esbuildなど)向けに最適化。拡張子付きimportも許可
+    "types": ["node"],
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+
+    "forceConsistentCasingInFileNames": true, // import時のファイル名の大文字・小文字の不一致をエラーにする(OS差によるバグ防止)
+    "allowImportingTsExtensions": true, // 拡張子付きのTypeScriptファイルのimportを許可
+    "rewriteRelativeImportExtensions": true // 相対パスのimportで拡張子を自動的に追加
+  },
+  "include": ["**/*ts"], // サブフォルダを含むすべての.tsファイルを対象にする
+  "exclude": ["node_modules", "dist"] // node_modulesと出力先のdistフォルダは対象外にする
+}

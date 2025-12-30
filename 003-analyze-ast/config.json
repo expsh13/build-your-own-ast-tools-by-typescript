@@ -1,0 +1,4 @@
+{
+  "call-super-in-constructor": "error",
+  "use-this-in-method": "error"
+}

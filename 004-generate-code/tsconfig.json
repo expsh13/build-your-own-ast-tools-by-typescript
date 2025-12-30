@@ -11,5 +11,5 @@
     "rewriteRelativeImportExtensions": true // 相対パスのimportで拡張子を自動的に追加
   },
   "include": ["**/*.ts"], // サブフォルダを含むすべての.tsファイルを対象にする
-  "exclude": ["node_modules", "dist"] // node_modulesと出力先のdistフォルダは対象外にする
+  "exclude": ["node_modules", "dist", "__mocks__"] // node_modules、出力先のdistフォルダ、__mocks__フォルダは対象外にする
 }

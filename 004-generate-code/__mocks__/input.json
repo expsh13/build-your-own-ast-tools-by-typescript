@@ -1,0 +1,39 @@
+{
+  "kind": "SourceFile",
+  "children": [
+    {
+      "kind": "FirstStatement",
+      "children": [
+        {
+          "kind": "VariableDeclarationList",
+          "children": [
+            {
+              "kind": "VariableDeclaration",
+              "children": [
+                {
+                  "kind": "Identifier",
+                  "text": "greeting",
+                  "children": []
+                },
+                {
+                  "kind": "StringKeyword",
+                  "text": "string",
+                  "children": []
+                },
+                {
+                  "kind": "StringLiteral",
+                  "text": "\"Hello, World!\"",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "EndOfFileToken",
+      "children": []
+    }
+  ]
+}

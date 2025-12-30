@@ -1,0 +1,4 @@
+{
+  "use-let-never-reassigned": "error",
+  "double-quotes": "error"
+}

@@ -97,6 +97,42 @@ function buildTsNodeFromAst(astNode: AstNode, depth = 0): ts.Node | null {
     case "StringLiteral":
       return toTsPrimitiveNode(astNode);
 
+    // 式文の場合、ExpressionStatementノードを生成します
+    case "ExpressionStatement": {
+      const expr = buildTsNodeFromAst(astNode.children[0], depth + 1);
+      return expr ? f.createExpressionStatement(expr as ts.Expression) : null;
+    }
+
+    // 代入式の場合、BinaryExpressionノードを生成します
+    case "BinaryExpression": {
+      const [leftNode, _, rightNode] = astNode.children;
+      const left = buildTsNodeFromAst(leftNode, depth + 1) as ts.Expression;
+      const right = buildTsNodeFromAst(rightNode, depth + 1) as ts.Expression;
+      return f.createBinaryExpression(
+        left,
+        f.createToken(ts.SyntaxKind.EqualsToken),
+        right
+      );
+    }
+
+    // 関数呼び出しの場合、CallExpressionノードを生成します
+    case "CallExpression": {
+      const [calleeNode, argNode] = astNode.children;
+      const callee = buildTsNodeFromAst(calleeNode, depth + 1) as ts.Expression;
+      const arg = buildTsNodeFromAst(argNode, depth + 1) as ts.Expression;
+      return f.createCallExpression(callee, undefined, [arg]);
+    }
+
+    // プロパティへのアクセスの場合、PropertyAccessExpressionノードを生成します
+    case "PropertyAccessExpression": {
+      const [objNode, propNode] = astNode.children;
+      const obj = buildTsNodeFromAst(objNode, depth + 1) as ts.Expression;
+      const prop = buildTsNodeFromAst(propNode, depth + 1) as ts.Identifier;
+      return f.createPropertyAccessExpression(obj, prop);
+    }
+
+    // BinaryExpressionで生成するため、FirstAssignmentは無視します
+    case "FirstAssignment":
     // ファイルの末尾の改行またはサポートされていないノードの場合、nullを返します
     case "EndOfFileToken":
     default:
